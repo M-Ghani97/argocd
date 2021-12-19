@@ -1,16 +1,22 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-app-deployment
+  name: node-app
+  labels:
+    app: node-app
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: node-app
   template:
     metadata:
-      labels: # labels to select/identify the deployment
-        app: nodeapp  
-    spec:     # pod spec                  
-      containers: 
-      - name: node-app 
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
         image: image-registry.openshift-image-registry.svc:5000/usman/myis:v1
         ports:
         - containerPort: 3000
+          name: http
