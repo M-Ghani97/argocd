@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: image-registry.openshift-image-registry.svc:5000/usman/myis:v2
+        image: image-registry.openshift-image-registry.svc:5000/usman/myis:Latest
         ports:
         - containerPort: 3000
           name: http
